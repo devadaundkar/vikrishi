@@ -1,0 +1,14 @@
+Django>=5.2,<5.3
+gunicorn>=21.2
+whitenoise>=6.6
+pymongo>=4.6
+mongoengine>=0.28
+dnspython>=2.6
+razorpay>=1.4
+twilio>=9.0
+bcrypt>=4.1
+requests>=2.31
+Pillow>=10.2
+opencv-python-headless>=4.9
+matplotlib>=3.8
+numpy>=1.26

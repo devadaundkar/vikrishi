@@ -1,0 +1,1326 @@
+Internal Server Error: /land/send_whatsapp/
+"GET /land/send_whatsapp/ HTTP/1.1" 500 194
+Internal Server Error: /land/send_whatsapp/
+"GET /land/send_whatsapp/ HTTP/1.1" 500 194
+Internal Server Error: /land/send_whatsapp/
+"GET /land/send_whatsapp/ HTTP/1.1" 500 194
+Internal Server Error: /land/send_whatsapp/
+"GET /land/send_whatsapp/ HTTP/1.1" 500 194
+Internal Server Error: /land/send_whatsapp/
+"GET /land/send_whatsapp/ HTTP/1.1" 500 194
+Internal Server Error: /land/send_whatsapp/
+"GET /land/send_whatsapp/ HTTP/1.1" 500 194
+Internal Server Error: /land/send_whatsapp/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: The view land.views.send_whatsapp didn't return an HttpResponse object. It returned None instead.
+"GET /land/send_whatsapp/ HTTP/1.1" 500 66024
+Internal Server Error: /land/send_whatsapp/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: The view land.views.send_whatsapp didn't return an HttpResponse object. It returned None instead.
+"GET /land/send_whatsapp/ HTTP/1.1" 500 65783
+Internal Server Error: /land/send_whatsapp/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 206, in send_whatsapp
+    return redirect(reverse('rentaland') + '?status=success&sid=' + message.sid + '&message_status=' + message.status)
+                    ~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'rentaland' not found. 'rentaland' is not a valid view function or pattern name.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 210, in send_whatsapp
+    return redirect(reverse('rentaland') + '?status=failed&error=' + str(e))
+                    ~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'rentaland' not found. 'rentaland' is not a valid view function or pattern name.
+"GET /land/send_whatsapp/ HTTP/1.1" 500 94106
+Internal Server Error: /land/send_whatsapp/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 206, in send_whatsapp
+    return redirect(reverse('rentaland') + '?status=success&sid=' + message.sid + '&message_status=' + message.status)
+                    ~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'rentaland' not found. 'rentaland' is not a valid view function or pattern name.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 210, in send_whatsapp
+    return redirect(reverse('rentaland') + '?status=failed&error=' + str(e))
+                    ~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'rentaland' not found. 'rentaland' is not a valid view function or pattern name.
+"GET /land/send_whatsapp/ HTTP/1.1" 500 93838
+Internal Server Error: /land/send_whatsapp/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 206, in send_whatsapp
+    return redirect(reverse('rentaland') + '?status=success&sid=' + message.sid + '&message_status=' + message.status)
+                    ~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'rentaland' not found. 'rentaland' is not a valid view function or pattern name.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 210, in send_whatsapp
+    return redirect(reverse('rentaland') + '?status=failed&error=' + str(e))
+                    ~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'rentaland' not found. 'rentaland' is not a valid view function or pattern name.
+"GET /land/send_whatsapp/ HTTP/1.1" 500 94106
+Internal Server Error: /land/send_whatsapp/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 206, in send_whatsapp
+    return redirect(reverse('rentaland/') + '?status=success&sid=' + message.sid + '&message_status=' + message.status)
+                    ~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'rentaland/' not found. 'rentaland/' is not a valid view function or pattern name.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 210, in send_whatsapp
+    return redirect(reverse('rentaland/') + '?status=failed&error=' + str(e))
+                    ~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'rentaland/' not found. 'rentaland/' is not a valid view function or pattern name.
+"GET /land/send_whatsapp/ HTTP/1.1" 500 94140
+Internal Server Error: /land/send_whatsapp/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 206, in send_whatsapp
+    return redirect(reverse('rentaland/') + '?status=success&sid=' + message.sid + '&message_status=' + message.status)
+                    ~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'rentaland/' not found. 'rentaland/' is not a valid view function or pattern name.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 210, in send_whatsapp
+    return redirect(reverse('rentaland/') + '?status=failed&error=' + str(e))
+                    ~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'rentaland/' not found. 'rentaland/' is not a valid view function or pattern name.
+"GET /land/send_whatsapp/ HTTP/1.1" 500 94140
+Internal Server Error: /land/send_whatsapp/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 206, in send_whatsapp
+    return redirect(reverse('rentaland/') + '?status=success&sid=' + message.sid + '&message_status=' + message.status)
+                    ~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'rentaland/' not found. 'rentaland/' is not a valid view function or pattern name.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 210, in send_whatsapp
+    return redirect(reverse('rentaland/') + '?status=failed&error=' + str(e))
+                    ~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'rentaland/' not found. 'rentaland/' is not a valid view function or pattern name.
+"GET /land/send_whatsapp/ HTTP/1.1" 500 93872
+Internal Server Error: /accounts/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'trans"List'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\accounts\views.py", line 102, in dashboard
+    return render(request, 'dashboard.html', {
+        'username': request.session['username'],
+    ...<4 lines>...
+        'total_earnings': total_earnings
+    })
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 577, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 363: 'trans"List'. Did you forget to register or load this tag?
+"GET /accounts/ HTTP/1.1" 500 183912
+Internal Server Error: /accounts/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'trans"Manage'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\accounts\views.py", line 102, in dashboard
+    return render(request, 'dashboard.html', {
+        'username': request.session['username'],
+    ...<4 lines>...
+        'total_earnings': total_earnings
+    })
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 577, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 393: 'trans"Manage'. Did you forget to register or load this tag?
+"GET /accounts/ HTTP/1.1" 500 182644
+Internal Server Error: /accounts/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\middleware\locale.py", line 35, in process_request
+    translation.activate(language)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\__init__.py", line 182, in activate
+    return _trans.activate(language)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 302, in activate
+    _active.value = translation(language)
+                    ~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 291, in translation
+    _translations[language] = DjangoTranslation(language)
+                              ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 171, in __init__
+    self._add_local_translations()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 231, in _add_local_translations
+    translation = self._new_gnu_trans(localedir)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 198, in _new_gnu_trans
+    return gettext_module.translation(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        domain=self.domain,
+        ^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        fallback=use_null_fallback,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 547, in translation
+    t = _translations.setdefault(key, class_(fp))
+                                      ~~~~~~^^^^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 279, in __init__
+    self._parse(fp)
+    ~~~~~~~~~~~^^^^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 433, in _parse
+    catalog[str(msg, charset)] = str(tmsg, charset)
+                                 ~~~^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe0 in position 1: ordinal not in range(128)
+"GET /accounts/ HTTP/1.1" 500 110974
+Internal Server Error: /accounts/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\middleware\locale.py", line 35, in process_request
+    translation.activate(language)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\__init__.py", line 182, in activate
+    return _trans.activate(language)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 302, in activate
+    _active.value = translation(language)
+                    ~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 291, in translation
+    _translations[language] = DjangoTranslation(language)
+                              ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 171, in __init__
+    self._add_local_translations()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 231, in _add_local_translations
+    translation = self._new_gnu_trans(localedir)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 198, in _new_gnu_trans
+    return gettext_module.translation(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        domain=self.domain,
+        ^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        fallback=use_null_fallback,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 547, in translation
+    t = _translations.setdefault(key, class_(fp))
+                                      ~~~~~~^^^^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 279, in __init__
+    self._parse(fp)
+    ~~~~~~~~~~~^^^^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 433, in _parse
+    catalog[str(msg, charset)] = str(tmsg, charset)
+                                 ~~~^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe0 in position 1: ordinal not in range(128)
+"GET /accounts/ HTTP/1.1" 500 110974
+Internal Server Error: /accounts/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\middleware\locale.py", line 35, in process_request
+    translation.activate(language)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\__init__.py", line 182, in activate
+    return _trans.activate(language)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 302, in activate
+    _active.value = translation(language)
+                    ~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 291, in translation
+    _translations[language] = DjangoTranslation(language)
+                              ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 171, in __init__
+    self._add_local_translations()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 231, in _add_local_translations
+    translation = self._new_gnu_trans(localedir)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 198, in _new_gnu_trans
+    return gettext_module.translation(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        domain=self.domain,
+        ^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        fallback=use_null_fallback,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 547, in translation
+    t = _translations.setdefault(key, class_(fp))
+                                      ~~~~~~^^^^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 279, in __init__
+    self._parse(fp)
+    ~~~~~~~~~~~^^^^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 433, in _parse
+    catalog[str(msg, charset)] = str(tmsg, charset)
+                                 ~~~^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe0 in position 1: ordinal not in range(128)
+"GET /accounts/ HTTP/1.1" 500 110974
+Internal Server Error: /accounts/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\middleware\locale.py", line 35, in process_request
+    translation.activate(language)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\__init__.py", line 182, in activate
+    return _trans.activate(language)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 302, in activate
+    _active.value = translation(language)
+                    ~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 291, in translation
+    _translations[language] = DjangoTranslation(language)
+                              ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 171, in __init__
+    self._add_local_translations()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 231, in _add_local_translations
+    translation = self._new_gnu_trans(localedir)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 198, in _new_gnu_trans
+    return gettext_module.translation(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        domain=self.domain,
+        ^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        fallback=use_null_fallback,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 547, in translation
+    t = _translations.setdefault(key, class_(fp))
+                                      ~~~~~~^^^^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 279, in __init__
+    self._parse(fp)
+    ~~~~~~~~~~~^^^^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 433, in _parse
+    catalog[str(msg, charset)] = str(tmsg, charset)
+                                 ~~~^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe0 in position 1: ordinal not in range(128)
+"GET /accounts/ HTTP/1.1" 500 110974
+Internal Server Error: /accounts/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\middleware\locale.py", line 35, in process_request
+    translation.activate(language)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\__init__.py", line 182, in activate
+    return _trans.activate(language)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 302, in activate
+    _active.value = translation(language)
+                    ~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 291, in translation
+    _translations[language] = DjangoTranslation(language)
+                              ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 171, in __init__
+    self._add_local_translations()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 231, in _add_local_translations
+    translation = self._new_gnu_trans(localedir)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 198, in _new_gnu_trans
+    return gettext_module.translation(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        domain=self.domain,
+        ^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        fallback=use_null_fallback,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 547, in translation
+    t = _translations.setdefault(key, class_(fp))
+                                      ~~~~~~^^^^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 279, in __init__
+    self._parse(fp)
+    ~~~~~~~~~~~^^^^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 433, in _parse
+    catalog[str(msg, charset)] = str(tmsg, charset)
+                                 ~~~^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe0 in position 1: ordinal not in range(128)
+"GET /accounts/ HTTP/1.1" 500 110974
+Internal Server Error: /accounts/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\middleware\locale.py", line 35, in process_request
+    translation.activate(language)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\__init__.py", line 182, in activate
+    return _trans.activate(language)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 302, in activate
+    _active.value = translation(language)
+                    ~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 291, in translation
+    _translations[language] = DjangoTranslation(language)
+                              ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 171, in __init__
+    self._add_local_translations()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 231, in _add_local_translations
+    translation = self._new_gnu_trans(localedir)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\utils\translation\trans_real.py", line 198, in _new_gnu_trans
+    return gettext_module.translation(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        domain=self.domain,
+        ^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        fallback=use_null_fallback,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 547, in translation
+    t = _translations.setdefault(key, class_(fp))
+                                      ~~~~~~^^^^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 279, in __init__
+    self._parse(fp)
+    ~~~~~~~~~~~^^^^
+  File "C:\Program Files\Python313\Lib\gettext.py", line 433, in _parse
+    catalog[str(msg, charset)] = str(tmsg, charset)
+                                 ~~~^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe0 in position 1: ordinal not in range(128)
+"GET /accounts/ HTTP/1.1" 500 110974
+Internal Server Error: /en/viewtool/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'trans"My'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\tools\views.py", line 140, in book_tools_view
+    return render(request, "booking.html", {
+        "tools": visible_tools,
+    ...<3 lines>...
+        "booked_tool_ids": list(booked_by_me)  # So template knows what to disable
+    })
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 577, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 172: 'trans"My'. Did you forget to register or load this tag?
+"GET /en/viewtool/ HTTP/1.1" 500 208055
+Internal Server Error: /en/viewtool/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'trans"All'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\tools\views.py", line 140, in book_tools_view
+    return render(request, "booking.html", {
+        "tools": visible_tools,
+    ...<3 lines>...
+        "booked_tool_ids": list(booked_by_me)  # So template knows what to disable
+    })
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 577, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 228: 'trans"All'. Did you forget to register or load this tag?
+"GET /en/viewtool/ HTTP/1.1" 500 211784
+Internal Server Error: /en/viewtool/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'trans"All'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\tools\views.py", line 140, in book_tools_view
+    return render(request, "booking.html", {
+        "tools": visible_tools,
+    ...<3 lines>...
+        "booked_tool_ids": list(booked_by_me)  # So template knows what to disable
+    })
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 577, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 228: 'trans"All'. Did you forget to register or load this tag?
+"GET /en/viewtool/ HTTP/1.1" 500 211784
+Internal Server Error: /land/yoloai/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 287, in yolo_view
+    results = model(abs_path)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\Deva/.cache\torch\hub\ultralytics_yolov5_master\models\common.py", line 888, in forward
+    im, f = Image.open(requests.get(im, stream=True).raw if str(im).startswith("http") else im), im
+            ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\PIL\Image.py", line 3572, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file 'uploaded.jpg'
+"POST /land/yoloai/ HTTP/1.1" 500 118184
+Internal Server Error: /land/yoloai/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 312, in yolo_view
+    return render(request, 'base.html', {'results': result_data, 'image_url': img_url})
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\defaulttags.py", line 976, in do_if
+    nodelist = parser.parse(("endif",))
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 710, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '['name']' from 'obj['name']'
+"POST /land/yoloai/ HTTP/1.1" 500 197625
+Internal Server Error: /en/viewtool/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'trans"My'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\tools\views.py", line 141, in book_tools_view
+    return render(request, "booking.html", {
+        "tools": visible_tools,
+    ...<3 lines>...
+        "booked_tool_ids": list(booked_by_me)  # So template knows what to disable
+    })
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 577, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 172: 'trans"My'. Did you forget to register or load this tag?
+"GET /en/viewtool/ HTTP/1.1" 500 208003
+Internal Server Error: /en/add-tool/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'trans"Tool'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\tools\views.py", line 64, in add_tool_view
+    return render(request, "add_tool.html")
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 577, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 129: 'trans"Tool'. Did you forget to register or load this tag?
+"GET /en/add-tool/ HTTP/1.1" 500 171317
+Internal Server Error: /en/add-tool/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'trans"Tool'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\tools\views.py", line 64, in add_tool_view
+    return render(request, "add_tool.html")
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 577, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 129: 'trans"Tool'. Did you forget to register or load this tag?
+"GET /en/add-tool/ HTTP/1.1" 500 171317
+Internal Server Error: /en/add-tool/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'trans"Tool'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\tools\views.py", line 64, in add_tool_view
+    return render(request, "add_tool.html")
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 577, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 129: 'trans"Tool'. Did you forget to register or load this tag?
+"GET /en/add-tool/ HTTP/1.1" 500 171317
+Internal Server Error: /accounts/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\accounts\views.py", line 103, in dashboard
+    return render(request, 'dashboard.html', {
+        'username': request.session['username'],
+    ...<4 lines>...
+        'total_earnings': total_earnings
+    })
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'land_lease' not found. 'land_lease' is not a valid view function or pattern name.
+"GET /accounts/ HTTP/1.1" 500 131893
+Internal Server Error: /accounts/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\accounts\views.py", line 103, in dashboard
+    return render(request, 'dashboard.html', {
+        'username': request.session['username'],
+    ...<4 lines>...
+        'total_earnings': total_earnings
+    })
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'rentaland' not found. 'rentaland' is not a valid view function or pattern name.
+"GET /accounts/ HTTP/1.1" 500 131870
+Internal Server Error: /land/rentaland/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 100, in rent_land
+    return render(request, "rentaland.html", {
+        "lands": lands,
+        "selected_land": selected_land,
+        "map_url": map_url
+    })
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'yolo_soil_analysis' not found. 'yolo_soil_analysis' is not a valid view function or pattern name.
+"GET /land/rentaland/ HTTP/1.1" 500 164235
+Internal Server Error: /land/landbooking/
+"POST /land/landbooking/ HTTP/1.1" 500 149
+Internal Server Error: /land/yoloai/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\accounts\utils.py", line 8, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 428, in soil_analysis_view
+    return render(request, 'base.html', context)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'rentaland' not found. 'rentaland' is not a valid view function or pattern name.
+"GET /land/yoloai/ HTTP/1.1" 500 121769
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\accounts\views.py", line 56, in login_view
+    if user and bcrypt.checkpw(password.encode('utf-8'), user["password"]):
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument 'hashed_password': 'str' object cannot be converted to 'PyBytes'
+"POST /accounts/login/ HTTP/1.1" 500 67493
+Internal Server Error: /en/book/67f7fd087b9c8b5f6e2e003/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\accounts\utils.py", line 8, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\tools\views.py", line 195, in tool_booking_detail
+    return render(request, "404.html", {"message": "Tool not found."})
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: 404.html
+"GET /en/book/67f7fd087b9c8b5f6e2e003/ HTTP/1.1" 500 84804
+Internal Server Error: /en/book/67f7fd087b9c8b5f6e2e003/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\accounts\utils.py", line 8, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\tools\views.py", line 195, in tool_booking_detail
+    return render(request, "404.html", {"message": "Tool not found."})
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: 404.html
+"GET /en/book/67f7fd087b9c8b5f6e2e003/ HTTP/1.1" 500 84941
+Internal Server Error: /land/soilanalysis/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\accounts\utils.py", line 8, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 444, in soil_analysis_view
+    return render(request, 'soil_analysis.html', context)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: soil_analysis.html
+"GET /land/soilanalysis/ HTTP/1.1" 500 84465
+Internal Server Error: /land/soilanalysis/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\accounts\utils.py", line 8, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 444, in soil_analysis_view
+    return render(request, 'soil_analysis.html', context)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: soil_analysis.html
+"GET /land/soilanalysis/ HTTP/1.1" 500 84733
+Internal Server Error: /land/soilanalysis/
+Traceback (most recent call last):
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\accounts\utils.py", line 8, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\farmingrent\land\views.py", line 444, in soil_analysis_view
+    return render(request, 'soil_analysis.html', context)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Deva\Documents\HTML\farmingrent\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: soil_analysis.html
+"GET /land/soilanalysis/ HTTP/1.1" 500 84733
+Internal Server Error: /land/landbooking/
+"POST /land/landbooking/ HTTP/1.1" 500 34
+Internal Server Error: /land/landbooking/
+"POST /land/landbooking/ HTTP/1.1" 500 34
+Internal Server Error: /land/landbooking/
+"POST /land/landbooking/ HTTP/1.1" 500 34
+Internal Server Error: /land/landbooking/
+"POST /land/landbooking/ HTTP/1.1" 500 34
