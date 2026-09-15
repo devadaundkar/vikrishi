@@ -1,0 +1,489 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-17 21:32+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "View Bookings"
+msgstr "बुकिंग्स देखें"
+
+msgid "Add Your Tool"
+msgstr "अपना टूल जोड़ें"
+
+msgid "View Tools for Rent"
+msgstr "किराए पर उपलब्ध टूल्स देखें"
+
+msgid "Dashboard Overview"
+msgstr "डैशबोर्ड अवलोकन"
+
+msgid "Welcome back! Here's what's happening with your tools and bookings."
+msgstr "स्वागत है! यहाँ आपके टूल्स और बुकिंग्स के साथ क्या हो रहा है, वह है।"
+
+msgid "Welcome back, <strong class=\"text-green-800\">%(username)s</strong>! You have %(bookings_count)s active bookings."
+msgstr "स्वागत है, <strong class=\"text-green-800\">%(username)s</strong>! आपके पास %(bookings_count)s सक्रिय बुकिंग्स हैं।"
+
+msgid "My Listed Tools"
+msgstr "मेरे सूचीबद्ध टूल्स"
+
+msgid "View Listings"
+msgstr "सूचियाँ देखें"
+
+msgid "Get Help"
+msgstr "मदद प्राप्त करें"
+
+msgid "My Bookings"
+msgstr "मेरी बुकिंग्स"
+
+
+msgid "Land Lease"
+msgstr "भूमि पट्टा"
+
+msgid "Put your land up for lease or rent, or browse available plots for temporary use."
+msgstr "अपनी भूमि को पट्टे पर दें या किराए पर लें, या अस्थायी उपयोग के लिए उपलब्ध भूखंडों को ब्राउज़ करें।"
+
+msgid "Lease Land"
+msgstr "भूमि पट्टे पर दें"
+
+
+msgid "Contact Support"
+msgstr "समर्थन से संपर्क करें"
+
+msgid "📊 Quick Stats"
+msgstr "📊 त्वरित आँकड़े"
+
+msgid "Browse available tools and make a booking."
+msgstr "उपलब्ध उपकरण ब्राउज़ करें और बुकिंग करें।"
+
+msgid "List your farming tool for rent and earn."
+msgstr "अपने कृषि उपकरण को किराये पर सूचीबद्ध करें और कमाएं।"
+
+msgid "Check status of your tool bookings."
+msgstr "अपने टूल बुकिंग की स्थिति जांचें।"
+
+msgid "Manage tools you've listed for rent."
+msgstr "आपके द्वारा किराये के लिए सूचीबद्ध उपकरणों का प्रबंधन करें।"
+
+msgid "Need help? Reach out to our team."
+msgstr "मदद चाहिए? हमारी टीम से संपर्क करें।"
+
+msgid "Active Bookings"
+msgstr "सक्रिय बुकिंग"
+
+msgid "Tools Listed"
+msgstr "सूचीबद्ध उपकरण"
+
+msgid "Total Earnings"
+msgstr "कुल कमाई"
+
+msgid "Connecting farmers with essential tools through seamless rentals and community support."
+msgstr "निर्बाध किराये और सामुदायिक समर्थन के माध्यम से किसानों को आवश्यक उपकरणों से जोड़ना।"
+
+msgid "Quick Links"
+msgstr "त्वरित सम्पक"
+
+msgid "Browse Tools"
+msgstr "उपकरण ब्राउज़ करें"
+
+msgid "List Your Tool"
+msgstr "अपने उपकरण की सूची बनाएं"
+
+msgid "Support"
+msgstr "सहायता"
+
+msgid "Contact Us"
+msgstr "हमसे संपर्क करें"
+
+msgid "📍 RuralTech Center, Greenfield"
+msgstr "📍 रूरलटेक सेंटर, ग्रीनफील्ड"
+
+msgid "Home"
+msgstr "घर"
+
+msgid "Tools"
+msgstr "औजार"
+
+msgid "How It Works"
+msgstr "यह काम किस प्रकार करता है"
+
+msgid "Testimonial"
+msgstr "गुणों का वर्ण-पत्र"
+
+msgid "Featured Farming Tools"
+msgstr "विशेष कृषि उपकरण"
+
+msgid "Premium equipment available for rent at competitive prices"
+msgstr "प्रीमियम उपकरण प्रतिस्पर्धी कीमतों पर किराए पर उपलब्ध हैं"
+
+msgid "Premium Farming Tools"
+msgstr "प्रीमियम कृषि उपकरण"
+
+msgid "On Demand"
+msgstr "मांग पर"
+
+msgid "Access high-quality agricultural equipment without the heavy investment. Rent what you need, when you need it."
+msgstr "भारी निवेश के बिना उच्च गुणवत्ता वाले कृषि उपकरण प्राप्त करें। जब आपको ज़रूरत हो, तो किराए पर लें।"
+
+msgid "Find Your Perfect Farming Tool"
+msgstr "अपना आदर्श कृषि उपकरण खोजें"
+
+msgid "100+ Tools"
+msgstr "100+ उपकरण"
+
+msgid "Available Now"
+msgstr "अब उपलब्ध है"
+
+msgid "Search"
+msgstr "खोज"
+
+msgid "Search tools..."
+msgstr "खोज उपकरण..."
+
+msgid "All Categories"
+msgstr "सभी श्रेणियाँ"
+
+msgid "Tractors"
+msgstr "ट्रैक्टर"
+
+msgid "Harvesters"
+msgstr "हार्वेस्टर"
+
+msgid "Irrigation"
+msgstr "सिंचाई"
+
+msgid "Plowing"
+msgstr "जुताई"
+
+msgid "Modern Tractor"
+msgstr "आधुनिक ट्रैक्टर"
+
+msgid "John Deere Tractor"
+msgstr "जॉन डीयर ट्रैक्टर"
+
+msgid "₹2,500/day"
+msgstr "₹2,500/दिन"
+
+msgid "75HP with advanced farming attachments. Perfect for medium to large farms."
+msgstr "उन्नत कृषि उपकरणों के साथ 75HP। मध्यम से बड़े खेतों के लिए बिल्कुल उपयुक्त।"
+
+msgid "Punjab"
+msgstr "पंजाब"
+
+msgid "Combine Harvester"
+msgstr "संयुक्त हार्वेस्टर"
+
+msgid "₹4,200/day"
+msgstr "₹4,200/दिन"
+
+msgid "Haryana"
+msgstr "हरियाणा"
+
+msgid "Rent Now"
+msgstr "अभी किराये पर लें"
+
+msgid "Advanced harvesting technology with 8-row capacity. GPS guided."
+msgstr "8-पंक्ति क्षमता वाली उन्नत कटाई तकनीक। जीपीएस मार्गदर्शित।"
+
+msgid "Heavy Duty Rotavator"
+msgstr "हेवी ड्यूटी रोटावेटर"
+
+msgid "₹1,800/day"
+msgstr "₹1,800/दिन"
+
+msgid "6-foot working width, ideal for preparing seedbeds in all soil conditions."
+msgstr "6 फुट कार्य चौड़ाई, सभी मिट्टी की स्थितियों में बीज क्यारियां तैयार करने के लिए आदर्श।"
+
+msgid "Select Tool"
+msgstr "उपकरण चुनें"
+
+msgid "Booking Details"
+msgstr "बुकिंग विवरण"
+
+msgid "Confirmation"
+msgstr "पुष्टीकरण"
+
+msgid "Your Name"
+msgstr "आपका नाम"
+
+msgid "Enter your full name"
+msgstr "अपना पूरा नाम भरें"
+
+msgid "Number of Days"
+msgstr "दिनों की संख्या"
+
+msgid "Delivery Option"
+msgstr "वितरण विकल्प"
+
+msgid "Pickup"
+msgstr "पिकअप"
+
+msgid "Collect from owner's location"
+msgstr "मालिक के स्थान से एकत्र करें"
+
+msgid "Delivered to your address"
+msgstr "आपके पते पर वितरित"
+
+msgid "Delivery Address"
+msgstr "डिलिवरी का पता"
+
+msgid "Phone Number"
+msgstr "फोन नंबर"
+
+msgid "Payment Summary"
+msgstr "भुगतान सारांश"
+
+msgid "Base Price"
+msgstr "आधार मूल्य"
+
+msgid "Total Amount"
+msgstr "कुल राशि"
+
+msgid "Delivery Fee"
+msgstr "वितरण शुल्क"
+
+msgid "Service Fee"
+msgstr "सेवा शुल्क"
+
+msgid "Confirm (Cash on delivery)"
+msgstr "पुष्टि करें (डिलीवरी पर नकद)"
+
+msgid "Listed Tools"
+msgstr "सूचीबद्ध उपकरण"
+
+msgid "Help & Support"
+msgstr "सहायता एवं समर्थन"
+
+msgid "List Your Farming Tool"
+msgstr "अपने कृषि उपकरण की सूची बनाएं"
+
+msgid "Share your equipment with the farming community and earn extra income"
+msgstr "अपने उपकरण कृषक समुदाय के साथ साझा करें और अतिरिक्त आय अर्जित करें"
+
+msgid "Tool Information"
+msgstr "उपकरण जानकारी"
+
+msgid "Tool Name"
+msgstr "उपकरण का नाम"
+
+msgid "Tool Category *"
+msgstr "उपकरण श्रेणी *"
+
+msgid "Select Category"
+msgstr "श्रेणी चुनें"
+
+msgid "Tool Images *"
+msgstr "उपकरण छवियाँ *"
+
+msgid "Upload clear photos from multiple angles (max 5 images)"
+msgstr "अनेक कोणों से स्पष्ट फ़ोटो अपलोड करें (अधिकतम 5 छवियाँ)"
+
+msgid "Description *"
+msgstr "विवरण *"
+
+msgid "Condition *"
+msgstr "स्थिति *"
+
+msgid "New (less than 1 year old)"
+msgstr "नया (1 वर्ष से कम पुराना)"
+
+msgid "Like New (excellent condition)"
+msgstr "बिल्कुल नया जैसा (उत्कृष्ट स्थिति)"
+
+msgid "Good (normal wear and tear)"
+msgstr "अच्छा (सामान्य टूट-फूट)"
+
+msgid "Fair (needs some maintenance)"
+msgstr "उचित (कुछ रखरखाव की आवश्यकता है)"
+
+msgid "Pricing & Availability"
+msgstr "मूल्य निर्धारण और उपलब्धता"
+
+msgid "Daily Rental Price (₹) *"
+msgstr "दैनिक किराया मूल्य (₹) *"
+
+msgid "Location *"
+msgstr "स्थान *"
+
+msgid "Available From *"
+msgstr "उपलब्ध प्रारंभ तिथि *"
+
+msgid "Available Until *"
+msgstr "उपलब्ध समाप्ति तिथि *"
+
+msgid "Available Time Slots *"
+msgstr "उपलब्ध समय स्लॉट *"
+
+msgid "Morning (8AM - 12PM)"
+msgstr "सुबह (8AM - 12PM)"
+
+msgid "Afternoon (12PM - 4PM)"
+msgstr "दोपहर (12PM - 4PM)"
+
+msgid "Evening (4PM - 8PM)"
+msgstr "शाम (4PM - 8PM)"
+
+msgid "Delivery & Contact"
+msgstr "वितरण और संपर्क"
+
+msgid "Delivery Options *"
+msgstr "डिलीवरी विकल्प *"
+
+msgid "Delivery Available (extra charges may apply)"
+msgstr "डिलीवरी उपलब्ध (अतिरिक्त शुल्क लागू हो सकते हैं)"
+
+msgid "Pickup Only"
+msgstr "केवल पिकअप"
+
+msgid "Contact Number *"
+msgstr "संपर्क संख्या *"
+
+msgid "Clear Form"
+msgstr "प्रपत्र साफ़ करें"
+
+msgid "Submit Listing"
+msgstr "सूची प्रस्तुत करें"
+
+msgid "Add Tool"
+msgstr "उपकरण जोड़ें"
+
+msgid "Filters"
+msgstr "फ़िल्टर"
+
+msgid "Date Range"
+msgstr "तिथि सीमा"
+
+msgid "Time Slot"
+msgstr "समय स्लॉट"
+
+msgid "All Time Slots"
+msgstr "सभी समय स्लॉट"
+
+msgid "All Locations"
+msgstr "सभी स्थान"
+
+msgid "Nashik"
+msgstr "नासिक"
+
+msgid "Pune"
+msgstr "पुणे"
+
+msgid "Ahmednagar"
+msgstr "अहमदनगर"
+
+msgid "Jalgaon"
+msgstr "जलगाँव"
+
+msgid "Show only available tools"
+msgstr "केवल उपलब्ध उपकरण दिखाएं"
+
+msgid "Apply Filters"
+msgstr "फ़िल्टर लागू करें"
+
+msgid "Reset"
+msgstr "रीसेट करें"
+
+msgid "Available Farming Tools"
+msgstr "उपलब्ध कृषि उपकरण"
+
+msgid "Find and book the tools you need for your farming operations"
+msgstr "अपने कृषि कार्यों के लिए आवश्यक उपकरण खोजें और बुक करें"
+
+msgid "Already Booked"
+msgstr "पहले से बुक"
+
+msgid "Book Now"
+msgstr "अभी बुक करें"
+
+msgid "Reset Filters"
+msgstr "फ़िल्टर रीसेट करें"
+
+msgid "Edit Tool Details"
+msgstr "उपकरण विवरण संपादित करें"
+
+msgid "Update your tool information to keep your listings accurate"
+msgstr "अपनी लिस्टिंग को सटीक रखने के लिए अपनी टूल जानकारी अपडेट करें"
+
+msgid "Category"
+msgstr "श्रेणी"
+
+msgid "Price (₹/day)"
+msgstr "मूल्य (₹/दिन)"
+
+msgid "Poor"
+msgstr "खराब"
+
+msgid "Pickup only"
+msgstr "केवल पिकअप"
+
+msgid "Delivery available"
+msgstr "डिलीवरी उपलब्ध"
+
+msgid "Both options"
+msgstr "दोनों विकल्प"
+
+msgid "Description"
+msgstr "विवरण"
+
+msgid "Update Tool"
+msgstr "उपकरण अपडेट करें"
+
+msgid "Cancel"
+msgstr "रद्द करें"
+
+msgid "Manage and track your booked farming tools"
+msgstr "अपने बुक किए गए कृषि उपकरणों का प्रबंधन और ट्रैक करें"
+
+msgid "View Details"
+msgstr "विवरण देखें"
+
+msgid "No Bookings Yet"
+msgstr "अभी तक कोई बुकिंग नहीं"
+
+msgid "Browse our tools and make your first booking"
+msgstr "हमारे टूल ब्राउज़ करें और अपनी पहली बुकिंग करें"
+
+msgid "Your Shared Tools"
+msgstr "आपके साझा उपकरण"
+
+msgid "Manage your shared equipment and connect with fellow farmers"
+msgstr "अपने साझा उपकरणों का प्रबंधन करें और साथी किसानों से जुड़ें"
+
+msgid "Booked"
+msgstr "बुक किया गया"
+
+msgid "Available"
+msgstr "उपलब्ध"
+
+msgid "/day"
+msgstr "/दिन"
+
+msgid "Booked by:"
+msgstr "बुक करने वाला:"
+
+msgid "Edit"
+msgstr "संपादित करें"
+
+msgid "Delete"
+msgstr "हटाएं"
+
+msgid "No tools listed yet"
+msgstr "अभी तक कोई उपकरण सूचीबद्ध नहीं है"
+
+msgid "Start sharing your farming tools and equipment to earn extra income"
+msgstr "अतिरिक्त आय अर्जित करने के लिए अपने कृषि उपकरण साझा करना शुरू करें"
+
+msgid "List Your First Tool"
+msgstr "अपना पहला टूल सूचीबद्ध करें"
