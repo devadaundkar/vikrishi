@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Image Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --primary-light: #d1fae5;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+        }
+        
+        .analysis-card {
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        .analysis-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .upload-section {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .upload-section.analyzing {
+            transform: translateY(-20px);
+        }
+        
+        .color-swatch {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            margin-right: 10px;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            transition: transform 0.3s ease;
+        }
+        
+        .color-swatch:hover {
+            transform: scale(1.1);
+        }
+        
+        .image-box img {
+            transition: all 0.5s ease;
+            transform: scale(0.95);
+        }
+        
+        .image-box img.loaded {
+            transform: scale(1);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 3px solid rgba(16, 185, 129, 0.3);
+            border-radius: 50%;
+            border-top-color: #10b981;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* New styles for upload preview and scanning animation */
+        .upload-preview {
+            display: none;
+            position: relative;
+            width: 100%;
+            height: 200px;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .upload-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .scanning-line {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, rgba(16, 185, 129, 0), rgba(16, 185, 129, 0.8), rgba(16, 185, 129, 0));
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
+            z-index: 10;
+            display: none;
+        }
+        
+        @keyframes scan {
+            0% { top: 0; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+        
+        .scanning-animation {
+            animation: scan 2s ease-in-out infinite;
+        }
+        
+        .upload-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            border: 2px dashed #d1d5db;
+            border-radius: 0.5rem;
+            background-color: #f9fafb;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-placeholder:hover {
+            border-color: #9ca3af;
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50 py-10 px-4">
+
+    <nav class="glass border-b border-green-100/50 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
+          <!-- Logo and Title -->
+          <div class="flex items-center gap-3">
+            <a href="{% url 'rent_land' %}" class="text-xl font-bold text-green-800">LandLease</a>
+          </div>
+      </nav>
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-2">Soil Image Analysis</h1>
+        <p class="text-center text-gray-600 mb-8">Upload an image of your soil to get detailed analysis</p>
+        
+        <div class="upload-section bg-white rounded-xl shadow-md p-6 mb-8 transition-all duration-300">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Upload Soil Image</h2>
+            <form method="POST" enctype="multipart/form-data" class="space-y-4" id="uploadForm">
+                {% csrf_token %}
+                <div id="uploadContainer">
+                    <div id="uploadPreview" class="upload-preview">
+                        <img id="previewImage" src="" alt="Soil preview">
+                        <div id="scanningLine" class="scanning-line"></div>
+                    </div>
+                    <div id="uploadPlaceholder" class="upload-placeholder">
+                        <svg class="w-8 h-8 mb-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                        </svg>
+                        <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                        <p class="text-xs text-gray-500">JPG, PNG (MAX. 5MB)</p>
+                    </div>
+                </div>
+                <input id="image" name="image" type="file" class="hidden" accept="image/*" required />
+                <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-3 px-4 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors">
+                    <span id="submit-text">Analyze Soil</span>
+                    <span id="submit-spinner" class="loading-spinner hidden"></span>
+                </button>
+            </form>
+        </div>
+
+        {% if analysis and 'error' in analysis %}
+            <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-8 animate-fade-in-up">
+                <h3 class="font-semibold">Error:</h3>
+                <p>{{ analysis.error }}</p>
+            </div>
+        {% endif %}
+
+        {% if original_image %}
+        <div class="results-section space-y-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 animate-fade-in-up">Analysis Results</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in-up">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-4 border-b border-gray-200">
+                        <h3 class="font-semibold text-gray-800">Original Image</h3>
+                    </div>
+                    <div class="p-4">
+                        <img src="data:image/jpeg;base64,{{ original_image }}" alt="Original Soil Image" class="w-full h-auto rounded-lg loaded" onload="this.classList.add('loaded')">
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-4 border-b border-gray-200">
+                    <h3 class="font-semibold text-gray-800">Color Analysis</h3>
+                </div>
+                <div class="p-4">
+                    {% if color_data and not color_data.error %}
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <span class="color-swatch" 
+                                  style="--r: {{ color_data.average_color.0 }}; --g: {{ color_data.average_color.1 }}; --b: {{ color_data.average_color.2 }}; background-color: rgb(var(--r), var(--g), var(--b));"></span>
+                            <div>
+                                <p class="font-medium">Average Soil Color</p>
+                                <p class="text-sm text-gray-600">RGB({{ color_data.average_color.0|floatformat:"0" }}, {{ color_data.average_color.1|floatformat:"0" }}, {{ color_data.average_color.2|floatformat:"0" }})</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <p class="text-sm text-gray-700">Color Diversity: <span class="font-medium">{{ color_data.color_diversity|floatformat:2 }}</span> <span class="text-xs text-gray-500">(higher values indicate more color variation)</span></p>
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Color Channel</th>
+                                        <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Average Value</th>
+                                        <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Variance</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-900">Red</td>
+                                        <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">{{ color_data.average_color.0 }}</td>
+                                        <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">{{ color_data.color_variance.0|floatformat:1 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-900">Green</td>
+                                        <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">{{ color_data.average_color.1 }}</td>
+                                        <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">{{ color_data.color_variance.1|floatformat:1 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-900">Blue</td>
+                                        <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">{{ color_data.average_color.2 }}</td>
+                                        <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">{{ color_data.color_variance.2|floatformat:1 }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    {% elif color_data.error %}
+                        <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                            <p>Color analysis error: {{ color_data.error }}</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="analysis-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-4 border-b border-gray-200">
+                    <h3 class="font-semibold text-gray-800">Moisture Analysis</h3>
+                </div>
+                <div class="p-4">
+                    {% if moisture_data and not moisture_data.error %}
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <p class="text-lg font-semibold text-emerald-600">Estimated Moisture Content: {{ moisture_data.moisture_percentage|floatformat:1 }}%</p>
+                            <p class="text-sm text-gray-600 mt-1">
+                                {% if moisture_data.moisture_percentage > 30 %}
+                                    <span class="text-blue-600">High moisture content (possibly wet soil)</span>
+                                {% elif moisture_data.moisture_percentage > 15 %}
+                                    <span class="text-green-600">Moderate moisture content</span>
+                                {% else %}
+                                    <span class="text-yellow-600">Low moisture content (possibly dry soil)</span>
+                                {% endif %}
+                            </p>
+                        </div>
+                        
+                        <img src="data:image/png;base64,{{ moisture_data.moisture_plot }}" alt="Moisture Analysis" class="w-full h-auto rounded-lg loaded" onload="this.classList.add('loaded')">
+                    </div>
+                    {% elif moisture_data.error %}
+                        <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                            <p>Moisture analysis error: {{ moisture_data.error }}</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="analysis-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-4 border-b border-gray-200">
+                    <h3 class="font-semibold text-gray-800">Texture Analysis</h3>
+                </div>
+                <div class="p-4">
+                    {% if texture_data and not texture_data.error %}
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <p class="text-lg font-semibold text-emerald-600">Texture Roughness: {{ texture_data.edge_density|floatformat:1 }}%</p>
+                            <p class="text-sm text-gray-600 mt-1">
+                                {% if texture_data.edge_density > 10 %}
+                                    <span class="text-blue-600">Rough texture (possibly sandy or granular soil)</span>
+                                {% elif texture_data.edge_density > 5 %}
+                                    <span class="text-green-600">Medium texture</span>
+                                {% else %}
+                                    <span class="text-yellow-600">Fine texture (possibly clay soil)</span>
+                                {% endif %}
+                            </p>
+                        </div>
+                        
+                        <img src="data:image/png;base64,{{ texture_data.texture_plot }}" alt="Texture Analysis" class="w-full h-auto rounded-lg loaded" onload="this.classList.add('loaded')">
+                    </div>
+                    {% elif texture_data.error %}
+                        <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                            <p>Texture analysis error: {{ texture_data.error }}</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        // Animation for analysis cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const analysisCards = document.querySelectorAll('.analysis-card');
+            
+            if (analysisCards.length > 0) {
+                // Add visible class with staggered delay
+                analysisCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                    }, index * 150);
+                });
+                
+                // Add analyzing class to upload section
+                const uploadSection = document.querySelector('.upload-section');
+                uploadSection.classList.add('analyzing');
+            }
+            
+            // Image upload preview
+            const imageInput = document.getElementById('image');
+            const uploadPreview = document.getElementById('uploadPreview');
+            const previewImage = document.getElementById('previewImage');
+            const uploadPlaceholder = document.getElementById('uploadPlaceholder');
+            const scanningLine = document.getElementById('scanningLine');
+            
+            imageInput.addEventListener('change', function(e) {
+                if (e.target.files.length > 0) {
+                    const file = e.target.files[0];
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(event) {
+                        previewImage.src = event.target.result;
+                        uploadPreview.style.display = 'block';
+                        uploadPlaceholder.style.display = 'none';
+                    }
+                    
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            // Click on placeholder to trigger file input
+            uploadPlaceholder.addEventListener('click', function() {
+                imageInput.click();
+            });
+            
+            // Form submission loading state with scanning animation
+            const form = document.getElementById('uploadForm');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    // Only show animation if we have an image
+                    if (previewImage.src) {
+                        e.preventDefault();
+                        
+                        const submitText = document.getElementById('submit-text');
+                        const submitSpinner = document.getElementById('submit-spinner');
+                        
+                        submitText.textContent = 'Analyzing...';
+                        submitSpinner.classList.remove('hidden');
+                        
+                        // Show scanning line animation
+                        scanningLine.style.display = 'block';
+                        scanningLine.classList.add('scanning-animation');
+                        
+                        // After 3 seconds, submit the form
+                        setTimeout(() => {
+                            scanningLine.style.display = 'none';
+                            scanningLine.classList.remove('scanning-animation');
+                            form.submit();
+                        }, 3000);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

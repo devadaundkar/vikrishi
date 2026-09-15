@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Tool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate-fade-in {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+    
+    .input-focus-effect:focus {
+      box-shadow: 0 0 0 3px rgba(74, 222, 139, 0.3);
+      border-color: #4ade8b;
+    }
+    
+    .checkbox-container input[type="checkbox"] {
+      display: none;
+    }
+    
+    .checkbox-container label {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      background-color: #f3f4f6;
+      color: #4b5563;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+    
+    .checkbox-container input[type="checkbox"]:checked + label {
+      background-color: #10b981;
+      color: white;
+      box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+    }
+    
+    .gradient-btn {
+      background-image: linear-gradient(to right, #10b981, #3b82f6);
+      background-size: 200% auto;
+      transition: all 0.3s ease;
+    }
+    
+    .gradient-btn:hover {
+      background-position: right center;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-emerald-50 to-blue-50 font-sans">
+  <div class="max-w-2xl mx-auto p-4">
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden animate-fade-in">
+      <!-- Form Header -->
+      <div class="bg-gradient-to-r from-emerald-500 to-teal-500 p-6 text-white">
+        <h2 class="text-2xl font-bold flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+          </svg>
+          Edit Tool Details
+        </h2>
+        <p class="text-emerald-100">Update your tool information to keep your listings accurate</p>
+      </div>
+
+      <!-- Form Content -->
+      <form method="POST" class="p-6">
+        {% csrf_token %}
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <!-- Tool Name -->
+          <div class="space-y-1">
+            <label class="block text-sm font-medium text-gray-700">Tool Name</label>
+            <input type="text" name="tool_name" value="{{ tool.tool_name }}" 
+                   class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none input-focus-effect transition"
+                   placeholder="e.g. Power Drill">
+          </div>
+          
+          <!-- Category -->
+          <div class="space-y-1">
+            <label class="block text-sm font-medium text-gray-700">Category</label>
+            <input type="text" name="tool_category" value="{{ tool.tool_category }}"
+                   class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none input-focus-effect transition"
+                   placeholder="e.g. Power Tools">
+          </div>
+          
+          <!-- Price -->
+          <div class="space-y-1">
+            <label class="block text-sm font-medium text-gray-700">Price (₹/day)</label>
+            <div class="relative">
+              <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">₹</span>
+              <input type="text" name="price" value="{{ tool.price }}"
+                     class="w-full pl-8 px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none input-focus-effect transition"
+                     placeholder="100">
+            </div>
+          </div>
+          
+          <!-- Condition -->
+          <div class="space-y-1">
+            <label class="block text-sm font-medium text-gray-700">Condition</label>
+            <select name="condition" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none input-focus-effect transition">
+              <option value="New" {% if tool.condition == "New" %}selected{% endif %}>New</option>
+              <option value="Like New" {% if tool.condition == "Like New" %}selected{% endif %}>Like New</option>
+              <option value="Good" {% if tool.condition == "Good" %}selected{% endif %}>Good</option>
+              <option value="Fair" {% if tool.condition == "Fair" %}selected{% endif %}>Fair</option>
+              <option value="Poor" {% if tool.condition == "Poor" %}selected{% endif %}>Poor</option>
+            </select>
+          </div>
+          
+          <!-- Location -->
+          <div class="space-y-1">
+            <label class="block text-sm font-medium text-gray-700">Location</label>
+            <input type="text" name="location" value="{{ tool.location }}"
+                   class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none input-focus-effect transition"
+                   placeholder="e.g. Bangalore">
+          </div>
+          
+          <!-- Phone -->
+          <div class="space-y-1">
+            <label class="block text-sm font-medium text-gray-700">Contact Number</label>
+            <input type="text" name="phone" value="{{ tool.phone }}"
+                   class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none input-focus-effect transition"
+                   placeholder="+91 9876543210">
+          </div>
+          
+          <!-- Start Date -->
+          <div class="space-y-1">
+            <label class="block text-sm font-medium text-gray-700">Available From</label>
+            <input type="date" name="start_date" value="{{ tool.start_date }}"
+                   class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none input-focus-effect transition">
+          </div>
+          
+          <!-- End Date -->
+          <div class="space-y-1">
+            <label class="block text-sm font-medium text-gray-700">Available Until</label>
+            <input type="date" name="end_date" value="{{ tool.end_date }}"
+                   class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none input-focus-effect transition">
+          </div>
+          
+          <!-- Delivery Options -->
+          <div class="space-y-1">
+            <label class="block text-sm font-medium text-gray-700">Delivery Options</label>
+            <select name="delivery" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none input-focus-effect transition">
+              <option value="Pickup only" {% if tool.delivery == "Pickup only" %}selected{% endif %}>Pickup only</option>
+              <option value="Delivery available" {% if tool.delivery == "Delivery available" %}selected{% endif %}>Delivery available</option>
+              <option value="Both" {% if tool.delivery == "Both" %}selected{% endif %}>Both options</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Description -->
+        <div class="mt-5 space-y-1">
+          <label class="block text-sm font-medium text-gray-700">Description</label>
+          <textarea name="description" rows="4"
+                    class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none input-focus-effect transition"
+                    placeholder="Describe your tool in detail...">{{ tool.description }}</textarea>
+        </div>
+        
+        <!-- Time Slots -->
+        <div class="mt-5">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Available Time Slots</label>
+          <div class="flex flex-wrap gap-2 checkbox-container">
+            {% for slot in time_slots %}
+            <div>
+              <input type="checkbox" id="timeslot-{{ forloop.counter }}" name="timeslot" value="{{ slot }}"
+                     {% if slot in tool.timeslot %}checked{% endif %}>
+              <label for="timeslot-{{ forloop.counter }}">{{ slot }}</label>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        
+        <!-- Form Actions -->
+        <div class="mt-8 flex justify-end space-x-3">
+          <a href="#" onclick="window.history.back();"
+             class="px-6 py-2.5 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition">
+            Cancel
+          </a>
+          <button type="submit" 
+                  class="px-8 py-2.5 rounded-lg text-white font-medium gradient-btn hover:shadow-md transition-all">
+            Update Tool
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

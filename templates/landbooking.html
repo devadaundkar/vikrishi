@@ -1,0 +1,310 @@
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --primary-light: #d1fae5;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+        }
+        
+        .payment-btn {
+            background-color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .payment-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .payment-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        
+        .input-focus:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50 py-10">
+    <div class="max-w-lg mx-auto px-4">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-8">
+                <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Complete Your Booking</h2>
+                
+                <!-- Payment Status Messages -->
+                <div id="payment-status" class="mb-6"></div>
+                <div id="success-msg" class="hidden bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-6 text-center"></div>
+
+                <form method="POST" id="bookForm" class="space-y-5">
+                    {% csrf_token %}
+                    <input type="hidden" name="land_t_id" value="{{ t_id }}">
+                    
+                    {% if success_message %}
+                    <div class="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
+                        {{ success_message }}
+                    </div>
+                    {% endif %}
+
+                    <!-- Personal Information -->
+                    <div class="space-y-5">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" required
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg input-focus"
+                                   placeholder="Enter your full name">
+                        </div>
+
+                        <div>
+                            <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                            <input type="text" id="address" name="address" required
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg input-focus"
+                                   placeholder="Enter your complete address">
+                        </div>
+
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg input-focus"
+                                   placeholder="Enter your phone number">
+                        </div>
+                    </div>
+
+                    <!-- Booking Details -->
+                    <div class="space-y-5">
+                        <div>
+                            <label for="bookFrom" class="block text-sm font-medium text-gray-700 mb-1">Booking Start Date</label>
+                            <input type="date" id="bookFrom" name="bookFrom" required
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg input-focus">
+                        </div>
+
+                        <div>
+                            <label for="months" class="block text-sm font-medium text-gray-700 mb-1">Duration</label>
+                            <select id="months" name="months" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg input-focus">
+                                <option value="">Select lease duration</option>
+                                <option value="1">1 Month</option>
+                                <option value="2">2 Months</option>
+                                <option value="3">3 Months</option>
+                                <option value="6">6 Months</option>
+                                <option value="12">12 Months</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="details" class="block text-sm font-medium text-gray-700 mb-1">Special Requests</label>
+                            <textarea id="details" name="details" rows="3"
+                                      class="w-full px-4 py-2 border border-gray-300 rounded-lg input-focus"
+                                      placeholder="Any special requirements"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Payment Summary -->
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium text-gray-700">Amount to Pay (10%)</span>
+                            <span id="amount" class="text-lg font-semibold text-green-600">
+                                ₹{{ amount|intcomma }}
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Payment Button (Fully Functional) -->
+                    <div class="pt-4">
+                        <button type="button" id="rzp-button"
+                                class="w-full payment-btn text-white py-3 rounded-lg font-medium flex items-center justify-center gap-2">
+                            Proceed to Payment
+                        </button>
+                    </div>
+                    <a  href="{% url 'send_whatsapp' %}" style="display: none;"></a>
+                </form>
+
+                <!-- Hidden WhatsApp Trigger -->
+                <form method="post" action="{% url 'send_whatsapp' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="land_t_id" value="{{ t_id }}">
+                    <button id="whatsapp-trigger" style="display: none;" type="submit">Send WhatsApp Confirmation</button>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        // Set the min attribute of the booking start date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('bookFrom').setAttribute('min', today);
+    </script>
+    
+    <!-- Razorpay Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+    document.getElementById('rzp-button').addEventListener('click', async function(e) {
+        e.preventDefault();
+        
+        const button = document.getElementById('rzp-button');
+        const statusDiv = document.getElementById('payment-status');
+        const successMsg = document.getElementById('success-msg');
+        
+        // Reset messages and show loading state
+        button.disabled = true;
+        button.innerHTML = `
+            <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Processing...
+        `;
+        statusDiv.innerHTML = '';
+        successMsg.classList.add('hidden');
+        
+        try {
+            const form = document.getElementById('bookForm');
+            const formData = new FormData(form);
+            
+            // Submit form data to create Razorpay order
+            const response = await fetch(window.location.pathname, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                    'Accept': 'application/json',
+                },
+                body: formData
+            });
+            
+            // Check if response is JSON
+            const contentType = response.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                const text = await response.text();
+                throw new Error(text || 'Invalid server response');
+            }
+            
+            const data = await response.json();
+            
+            if (!response.ok) {
+                throw new Error(data.error || 'Payment processing failed');
+            }
+            
+            if (!data.order_id) {
+                throw new Error('Missing order ID in response');
+            }
+            
+            // Configure Razorpay options
+            const options = {
+                key: data.razorpay_key || 'rzp_test_YwAenDeaTCwwkW',
+                amount: data.amount,
+                currency: "INR",
+                name: "Farm Lease Booking",
+                description: "Land Booking Payment",
+                order_id: data.order_id,
+                handler: async function (razorpayResponse) {
+                    try {
+                        button.disabled = true;
+                        button.innerHTML = `
+                            <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Completing Booking...
+                        `;
+                        
+                        // Verify payment with backend
+                        const verificationResponse = await fetch('/verify_payment/', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRFToken': '{{ csrf_token }}'
+                            },
+                            body: JSON.stringify({
+                                razorpay_payment_id: razorpayResponse.razorpay_payment_id,
+                                booking_id: data.booking_id
+                            })
+                        });
+                        
+                        // Trigger WhatsApp notification
+                         document.getElementById('whatsapp-trigger').click();
+                        
+                        // Show success message
+                        successMsg.innerHTML = `
+                            <div class="flex items-center justify-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                                Payment successful! Booking ID: ${data.booking_id}
+                            </div>
+                        `;
+                        successMsg.classList.remove('hidden');
+                        
+                        // Reset form
+                        
+                        
+                    } catch (error) {
+                        console.error('Verification error:', error);
+                        statusDiv.innerHTML = `
+                            <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                                <div class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span>Payment verification failed. Please contact support.</span>
+                                </div>
+                            </div>
+                        `;
+                    } finally {
+                        button.disabled = false;
+                        button.innerHTML = 'Proceed to Payment';
+                    }
+                },
+                theme: {
+                    color: '#10b981'
+                }
+            };
+            
+            // Open Razorpay payment dialog
+            const rzp1 = new Razorpay(options);
+            rzp1.open();
+            
+        } catch (error) {
+            console.error('Error:', error);
+            statusDiv.innerHTML = `
+                <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                    <div class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                        </svg>
+                        <span>${error.message}</span>
+                    </div>
+                </div>
+            `;
+        } finally {
+            button.disabled = false;
+            button.innerHTML = 'Proceed to Payment';
+        }
+    });
+    </script>
+</body>
+</html>

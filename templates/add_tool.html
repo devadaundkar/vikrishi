@@ -1,0 +1,345 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Your Tool | Vikrushi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f0fdf4 0%, #f5f5dc 50%, #ecfdf5 100%);
+    }
+
+    .form-input:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+      border-color: #10b981;
+    }
+
+    .gradient-btn {
+      background: linear-gradient(135deg, #10b981, #3b82f6);
+      background-size: 200% auto;
+      transition: all 0.3s ease;
+    }
+
+    .gradient-btn:hover {
+      background-position: right center;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .file-upload {
+      transition: all 0.3s ease;
+    }
+
+    .file-upload:hover {
+      transform: translateY(-1px);
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body class="min-h-screen">
+  <!-- Navbar -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center space-x-3">
+        <a href="{% url 'dashboard' %}" class="flex items-center space-x-2 group">
+          <img src="{% static 'logo.png' %}" 
+          class="h-10 object-contain scale-[3.6] transition-transform hover:scale-[4]"
+               alt="Vikrushi Logo">
+        </a>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex space-x-6 text-gray-600 font-medium items-center">
+        <a href="{% url 'dashboard' %}" class="hover:text-green-600 transition flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          {% trans "Home" %}
+        </a>
+        <a href="{% url 'my_tools' %}" class="hover:text-green-600 transition flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+          {% trans "Listed Tools" %}
+        </a>
+       
+        <a href="{% url 'contact_support' %}" class="hover:text-yellow-600 transition flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          {% trans "Help & Support" %}
+        </a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8 animate-fade-in">
+    <div class="max-w-3xl mx-auto">
+      <!-- Page Header -->
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">{% trans "List Your Farming Tool" %}</h1>
+        <p class="text-gray-600">{% trans "Share your equipment with the farming community and earn extra income" %}</p>
+      </div>
+
+      <!-- Success Messages -->
+      {% if messages %}
+        {% for message in messages %}
+          <div class="bg-green-500 text-white p-4 rounded-lg mb-6 text-center">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+
+      <!-- Form Container -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <form class="p-6 sm:p-8 space-y-6" method="POST" enctype="multipart/form-data" action="{% url 'add_tool' %}">
+          {% csrf_token %}
+          
+          <!-- Tool Information Section -->
+          <div class="space-y-6">
+            <h2 class="text-xl font-semibold text-gray-800 border-b pb-2">{% trans "Tool Information" %}</h2>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Tool Name" %} *</label>
+              <input type="text" name="tool_name" required 
+                     class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:border-green-500"
+                     placeholder="e.g., John Deere Tractor Model X">
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Tool Category *" %}</label>
+              <select name="tool_category" required 
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:border-green-500">
+                <option value="">{% trans "Select Category" %}</option>
+                <option>{% trans "Tractor" %}</option>
+                <option>{% trans "Harvester" %}</option>
+                <option>{% trans "Irrigation Equipment" %}</option>
+                <option>{% trans "Plowing Equipment" %}</option>
+                <option>{% trans "Planting Equipment" %}</option>
+                <option>{% trans "Sprayers" %}</option>
+                <option>{% trans "Others" %}</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Tool Images *" %}</label>
+              <p class="text-xs text-gray-500 mb-2">{% trans "Upload clear photos from multiple angles (max 5 images)" %}</p>
+              <input type="file" name="images" multiple required
+                     class="file-upload block w-full text-sm text-gray-500
+                            file:mr-4 file:py-2 file:px-4 
+                            file:rounded-lg file:border-0
+                            file:text-sm file:font-medium
+                            file:bg-green-100 file:text-green-700
+                            hover:file:bg-green-200">
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Description *" %}</label>
+              <textarea name="description"  rows="4"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:border-green-500"
+                        placeholder="Describe your tool's features, specifications, and any special instructions"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Condition *" %}</label>
+              <select name="condition" required 
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:border-green-500">
+                <option>{% trans "New (less than 1 year old)" %}</option>
+                <option>{% trans "Like New (excellent condition)" %}</option>
+                <option>{% trans "Good (normal wear and tear)" %}</option>
+                <option>{% trans "Fair (needs some maintenance)" %}</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Pricing & Availability Section -->
+          <div class="space-y-6">
+            <h2 class="text-xl font-semibold text-gray-800 border-b pb-2">{% trans "Pricing & Availability" %}</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Daily Rental Price (₹) *" %}</label>
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">₹</span>
+                  <input type="number" name="price" required min="100" step="50"
+                         class="w-full pl-8 px-4 py-3 border border-gray-300 rounded-lg form-input focus:border-green-500"
+                         placeholder="500">
+                </div>
+              </div>
+
+              <div class="relative">
+                <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Location *" %}</label>
+              
+                <input type="text" id="location" name="location" required
+                       class="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg form-input focus:border-green-500"
+                       placeholder="e.g., Nashik District">
+              
+                <button type="button" onclick="getLocation()" 
+                        class="absolute top-9 right-3 text-gray-500 hover:text-green-600" title="Detect My Location">
+                  <!-- Location SVG icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 11c1.1046 0 2-.8954 2-2s-.8954-2-2-2-2 .8954-2 2 .8954 2 2 2zm0 10c-4.4183-4.4183-7-7.5817-7-10a7 7 0 1114 0c0 2.4183-2.5817 5.5817-7 10z"/>
+                  </svg>
+                </button>
+              </div>
+              
+              
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Available From *" %}</label>
+                <input type="date" name="start_date" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:border-green-500">
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Available Until *" %}</label>
+                <input type="date" name="end_date" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:border-green-500">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">{% trans "Available Time Slots *" %}</label>
+              <div class="flex flex-wrap gap-4">
+                <label class="flex items-center space-x-2">
+                  <input type="checkbox" name="timeslot" value="Morning" class="h-4 w-4 text-green-600 rounded">
+                  <span>{% trans "Morning (8AM - 12PM)" %}</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                  <input type="checkbox" name="timeslot" value="Afternoon" class="h-4 w-4 text-green-600 rounded">
+                  <span>{% trans "Afternoon (12PM - 4PM)" %}</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                  <input type="checkbox" name="timeslot" value="Evening" class="h-4 w-4 text-green-600 rounded">
+                  <span>{% trans "Evening (4PM - 8PM)" %}</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Delivery & Contact Section -->
+          <div class="space-y-6">
+            <h2 class="text-xl font-semibold text-gray-800 border-b pb-2">{% trans "Delivery & Contact" %}</h2>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">{% trans "Delivery Options *" %}</label>
+              <div class="flex flex-wrap gap-6">
+                <label class="flex items-center space-x-2">
+                  <input type="radio" name="delivery" value="Available" required class="h-4 w-4 text-green-600">
+                  <span>{% trans "Delivery Available (extra charges may apply)" %}</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                  <input type="radio" name="delivery" value="Not Available" class="h-4 w-4 text-green-600">
+                  <span>{% trans "Pickup Only" %}</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Contact Number *" %}</label>
+              <input type="tel" name="phone" required pattern="[0-9]{10}"
+                     class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:border-green-500"
+                     placeholder="10-digit mobile number" 
+                     maxlength="10" inputmode="numeric"
+                     oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);">
+              <p class="text-xs text-gray-500 mt-1">{% trans "This will be shared with potential renters" %}</p>
+            </div>
+            
+
+          <!-- Form Actions -->
+          <div class="flex flex-col sm:flex-row justify-between gap-4 pt-4">
+            <button type="reset" 
+                    class="px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition">
+             {% trans " Clear Form" %}
+            </button>
+            <button type="submit" 
+                    class="px-6 py-3 gradient-btn text-white font-medium rounded-lg shadow hover:shadow-md transition">
+              {% trans "Submit Listing" %}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const startDateInput = document.querySelector('input[name="start_date"]');
+      const endDateInput = document.querySelector('input[name="end_date"]');
+  
+      const today = new Date().toISOString().split('T')[0];
+      startDateInput.min = today;
+      endDateInput.min = today;
+  
+      startDateInput.addEventListener("change", () => {
+        endDateInput.min = startDateInput.value;
+        if (endDateInput.value && endDateInput.value < startDateInput.value) {
+          endDateInput.value = "";
+          alert("End date can't be before the start date.");
+        }
+      });
+  
+      endDateInput.addEventListener("change", () => {
+        if (endDateInput.value < startDateInput.value) {
+          alert("End date can't be before the start date.");
+          endDateInput.value = "";
+        }
+      });
+    });
+  </script>
+  
+  <script>
+    function getLocation() {
+      if (!navigator.geolocation) {
+        alert("Geolocation is not supported by your browser.");
+        return;
+      }
+  
+      navigator.geolocation.getCurrentPosition(async function (position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+  
+        try {
+          // Using OpenStreetMap Nominatim API (Free & No key needed)
+          const response = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`);
+          const data = await response.json();
+  
+          if (data && data.display_name) {
+            document.getElementById("location").value = data.display_name;
+          } else {
+            alert("Unable to retrieve address from coordinates.");
+          }
+        } catch (error) {
+          console.error("Error during reverse geocoding:", error);
+          alert("Something went wrong while fetching location info.");
+        }
+      }, function (error) {
+        alert("Unable to retrieve your location.");
+      });
+    }
+  </script>
+  
+
+</body>
+</html>

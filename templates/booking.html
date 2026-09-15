@@ -1,0 +1,624 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Book Farming Tools | Vikrushi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --nature-green: #10b981;
+      --nature-green-dark: #059669;
+      --earth-brown: #8B5E3C;
+      --soft-beige: #f5f5dc;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-entry {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    .tool-card {
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .gradient-btn {
+      background: linear-gradient(135deg, var(--nature-green), #3b82f6);
+      background-size: 200% auto;
+      transition: all 0.3s ease;
+    }
+
+    .gradient-btn:hover {
+      background-position: right center;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .filter-card {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      background: var(--nature-green);
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .image-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    .image-modal.active {
+      display: flex;
+    }
+    
+    .modal-content {
+      position: relative;
+      width: 80%;
+      max-width: 800px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .modal-image {
+      max-height: 80vh;
+      max-width: 90%;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .close-modal {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .close-modal:hover {
+      transform: rotate(90deg);
+      color: #f8f8f8;
+    }
+    
+    /* Enhanced Card Image */
+    .tool-image-container {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      cursor: zoom-in;
+    }
+    
+    .tool-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .tool-image-container:hover .tool-image {
+      transform: scale(1.05);
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50">
+  <!-- Navbar -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <!-- Logo and Title -->
+      <div class="flex items-center space-x-3">
+        <a href="{% url 'dashboard' %}" class="flex items-center space-x-2 group">
+          <div class="relative h-12 w-12 flex items-center justify-center">
+            <img src="{% static 'logo.png' %}" 
+            class="h-10 object-contain scale-[3.6] transition-transform hover:scale-[4]"
+                 alt="Vikrushi Logo">
+          </div>
+          
+        </a>
+      </div>
+
+      <!-- Inside the header div, after the logo -->
+<div class="flex-1 mx-4 max-w-xl">
+  <div class="relative">
+    <input type="text" id="toolsSearch" placeholder="{% trans 'Search tools...' %}" 
+           class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500">
+    <button id="searchToolsBtn" class="absolute right-3 top-2 text-gray-500 hover:text-green-600">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+      </svg>
+    </button>
+  </div>
+</div>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex space-x-6 text-gray-600 font-medium items-center">
+        <a href="{% url 'my_bookings' %}" class="hover:text-green-600 transition flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v11a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+          {% trans "My Bookings" %}
+        </a>
+        <a href="{% url 'my_tools' %}" class="hover:text-green-600 transition flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+          {% trans "Listed Tools" %}
+        </a>
+        <a href="{% url 'add_tool' %}" class="hover:text-green-600 transition flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+          </svg>
+          {% trans "Add Tool" %}
+        </a>
+        <a href="{% url 'contact_support' %}" class="hover:text-yellow-600 transition flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          {% trans "Help & Support" %}
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <main class="container mx-auto px-4 py-6 flex flex-col md:flex-row gap-6">
+    <!-- Filter Sidebar -->
+    <aside class="w-full md:w-1/4 animate-entry">
+      <div class="bg-white rounded-xl shadow-sm filter-card p-5 sticky top-20">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+          </svg>
+          {% trans " Filters" %}
+        </h2>
+        
+        <form method="get" class="space-y-5">
+          <!-- Date Range -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Date Range" %}</label>
+            <div class="flex space-x-2">
+              <div class="flex-1">
+                <input type="date" name="start_date" value="{{ request.GET.start_date }}"
+                  class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+              </div>
+              <div class="flex-1">
+                <input type="date" name="end_date" value="{{ request.GET.end_date }}"
+                  class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+              </div>
+            </div>
+          </div>
+
+          <!-- Time Slot -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Time Slot" %}</label>
+            <select name="timeslot" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+              <option value="">{% trans "All Time Slots" %}</option>
+              <option value="Morning" {% if request.GET.timeslot == "Morning" %}selected{% endif %}>{% trans "Morning (8AM-12PM)" %}</option>
+              <option value="Afternoon" {% if request.GET.timeslot == "Afternoon" %}selected{% endif %}>{% trans "Afternoon (12PM-4PM)" %}</option>
+              <option value="Evening" {% if request.GET.timeslot == "Evening" %}selected{% endif %}>{% trans "Evening (4PM-8PM)" %}</option>
+            </select>
+          </div>
+
+          <!-- Price Range -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+              Max Price: <span class="font-bold text-green-600">₹{{ request.GET.max_price|default:10000 }}</span>
+            </label>
+            <input type="range" name="max_price" min="100" max="10000" step="100" 
+                   value="{{ request.GET.max_price|default:10000 }}"
+                   class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+            <div class="flex justify-between text-xs text-gray-500 mt-1">
+              <span>₹100</span>
+              <span>₹10,000</span>
+            </div>
+          </div>
+
+          <!-- Category -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">{% trans "Tool Category" %}</label>
+            <div class="space-y-2">
+              {% for cat in categories %}
+              <label class="flex items-center space-x-3">
+                <input type="checkbox" name="category" value="{{ cat }}" 
+                       {% if cat in selected_categories %}checked{% endif %}
+                       class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                <span class="text-sm text-gray-700">{{ cat }}</span>
+              </label>
+              {% endfor %}
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Location" %}</label>
+            <select name="location" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+              <option value="">All Locations</option>
+              <option {% if request.GET.location == "Nashik" %}selected{% endif %}>{% trans "Nashik" %}</option>
+              <option {% if request.GET.location == "Pune" %}selected{% endif %}>{% trans "Pune" %}</option>
+              <option {% if request.GET.location == "Ahmednagar" %}selected{% endif %}>{% trans "Ahmednagar" %}</option>
+              <option {% if request.GET.location == "Jalgaon" %}selected{% endif %}>{% trans "Jalgaon" %}</option>
+            </select>
+          </div>
+
+          <!-- Availability Toggle -->
+          <div class="flex items-center">
+            <input type="checkbox" id="availableOnly" name="availableOnly" 
+                   {% if request.GET.availableOnly %}checked{% endif %}
+                   class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+            <label for="availableOnly" class="ml-2 block text-sm text-gray-700">
+              {% trans "Show only available tools" %}
+            </label>
+          </div>
+
+          <!-- Filter Buttons -->
+          <div class="flex justify-between space-x-3 pt-2">
+            <button type="reset" onclick="window.location.href=window.location.pathname;"
+              class="flex-1 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition font-medium">
+              {% trans "Reset" %}
+            </button>
+            <button type="submit" class="flex-1 py-2 gradient-btn text-white rounded-lg font-medium shadow-sm">
+              {% trans "Apply Filters" %}
+            </button>
+          </div>
+        </form>
+      </div>
+    </aside>
+
+    <!-- Tools Display Section -->
+    <section class="w-full md:w-3/4 animate-entry delay-100">
+      <!-- Django Messages -->
+      {% if messages %}
+      <div class="mb-6">
+        {% for message in messages %}
+          <div class="p-3 rounded-lg text-white font-medium
+            {% if message.tags == 'success' %}bg-green-500
+            {% elif message.tags == 'error' %}bg-red-500
+            {% elif message.tags == 'warning' %}bg-yellow-500
+            {% else %}bg-blue-500{% endif %}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
+        <div>
+          <h2 class="text-2xl font-bold text-gray-800">{% trans "Available Farming Tools" %}</h2>
+          <p class="text-sm text-gray-600 mt-1">{% trans "Find and book the tools you need for your farming operations"%}</p>
+        </div>
+        <p class="text-sm text-gray-500 mt-2 sm:mt-0">{{ tools|length }} tools found</p>
+      </div>
+
+      {% if tools %}
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {% for tool in tools %}
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden tool-card border border-gray-100 tool-item"
+        data-name="{{ tool.tool_name|lower }}"
+        data-category="{{ tool.tool_category|lower }}"
+        data-location="{{ tool.location|lower }}"
+        data-price="{{ tool.price }}">
+          <!-- Tool Image with click to zoom -->
+          <div class="tool-image-container" onclick="openImageModal('{{ tool.images.0|safe }}', '{{ tool.tool_name }}')">
+            {% if tool.images and tool.images.0 %}
+              <img src="{{ tool.images.0|safe }}" 
+                   class="tool-image" 
+                   alt="{{ tool.tool_name }}">
+            {% else %}
+              <div class="h-full bg-gray-100 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="p-5">
+            <div class="flex justify-between items-start">
+              <h3 class="text-lg font-semibold text-gray-800">{{ tool.tool_name }}</h3>
+              <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
+                {{ tool.tool_category }}
+              </span>
+            </div>
+            
+            <div class="mt-2 space-y-1">
+              <p class="text-sm text-gray-600 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                {{ tool.location }}
+              </p>
+              <p class="text-sm text-gray-600 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                ₹{{ tool.price }} / day
+              </p>
+              <p class="text-sm flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                Condition: <span class="font-medium ml-1">{{ tool.condition }}</span>
+              </p>
+            </div>
+
+            {% if tool.t_id in booked_tool_ids %}
+            <button class="mt-4 w-full bg-gray-200 text-gray-600 py-2 rounded-lg font-medium cursor-not-allowed" disabled>
+              {% trans "Already Booked" %}
+            </button>
+            {% else %}
+            <a href="{% url 'tool_booking_detail' tool.t_id %}" class="block mt-4">
+              <button class="w-full gradient-btn text-white py-2.5 rounded-lg font-medium hover:shadow-md transition">
+                {% trans "Book Now" %}
+              </button>
+            </a>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="bg-white rounded-xl shadow-sm p-8 text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <h3 class="text-lg font-medium text-gray-700 mt-3">No tools found</h3>
+        <p class="text-gray-500 mt-1">Try adjusting your filters or check back later</p>
+        <button onclick="window.location.href=window.location.pathname;" 
+                class="mt-4 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+          {% trans "Reset Filters" %}
+        </button>
+      </div>
+      {% endif %}
+    </section>
+  </main>
+  
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeImageModal()">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeImageModal(event)">&times;</span>
+        <img id="expandedImage" class="modal-image" src="" alt="">
+      </div>
+    </div>
+
+
+    <script>
+      // Tool Search Functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const toolsSearch = document.getElementById('toolsSearch');
+        const searchToolsBtn = document.getElementById('searchToolsBtn');
+        const toolItems = document.querySelectorAll('.tool-item');
+        
+        function filterTools() {
+          const searchTerm = toolsSearch.value.toLowerCase();
+          
+          if (!searchTerm) {
+            // Show all tools if search is empty
+            toolItems.forEach(item => {
+              item.style.display = 'block';
+              item.style.order = '0';
+            });
+            return;
+          }
+          
+          // First pass: hide non-matching and show matching tools
+          toolItems.forEach(item => {
+            const toolName = item.getAttribute('data-name');
+            const toolCategory = item.getAttribute('data-category');
+            const toolLocation = item.getAttribute('data-location');
+            
+            if (toolName.includes(searchTerm) || 
+                toolCategory.includes(searchTerm) || 
+                toolLocation.includes(searchTerm)) {
+              item.style.display = 'block';
+              
+              // Highlight matching text
+              const nameElement = item.querySelector('h3');
+              const categoryElement = item.querySelector('span.bg-green-100');
+              const locationElement = item.querySelector('p.text-gray-600:first-of-type');
+              
+              // Remove previous highlights
+              nameElement.innerHTML = nameElement.textContent;
+              if (categoryElement) categoryElement.innerHTML = categoryElement.textContent;
+              if (locationElement) locationElement.innerHTML = locationElement.textContent;
+              
+              // Highlight matches
+              if (toolName.includes(searchTerm)) {
+                const regex = new RegExp(searchTerm, 'gi');
+                nameElement.innerHTML = nameElement.textContent.replace(
+                  regex, 
+                  match => `<span class="bg-yellow-200">${match}</span>`
+                );
+              }
+              
+              if (toolCategory.includes(searchTerm) && categoryElement) {
+                const regex = new RegExp(searchTerm, 'gi');
+                categoryElement.innerHTML = categoryElement.textContent.replace(
+                  regex, 
+                  match => `<span class="bg-yellow-200">${match}</span>`
+                );
+              }
+              
+              if (toolLocation.includes(searchTerm) && locationElement) {
+                const regex = new RegExp(searchTerm, 'gi');
+                locationElement.innerHTML = locationElement.textContent.replace(
+                  regex, 
+                  match => `<span class="bg-yellow-200">${match}</span>`
+                );
+              }
+            } else {
+              item.style.display = 'none';
+            }
+          });
+          
+          // Second pass: sort visible tools by relevance
+          const visibleItems = Array.from(toolItems).filter(item => item.style.display !== 'none');
+          
+          visibleItems.sort((a, b) => {
+            const aName = a.getAttribute('data-name');
+            const bName = b.getAttribute('data-name');
+            const aCategory = a.getAttribute('data-category');
+            const bCategory = b.getAttribute('data-category');
+            const aLocation = a.getAttribute('data-location');
+            const bLocation = b.getAttribute('data-location');
+            
+            // Prioritize name matches first
+            const aNameMatch = aName.includes(searchTerm) ? 1 : 0;
+            const bNameMatch = bName.includes(searchTerm) ? 1 : 0;
+            
+            if (aNameMatch !== bNameMatch) {
+              return bNameMatch - aNameMatch;
+            }
+            
+            // Then category matches
+            const aCategoryMatch = aCategory.includes(searchTerm) ? 1 : 0;
+            const bCategoryMatch = bCategory.includes(searchTerm) ? 1 : 0;
+            
+            if (aCategoryMatch !== bCategoryMatch) {
+              return bCategoryMatch - aCategoryMatch;
+            }
+            
+            // Then location matches
+            const aLocationMatch = aLocation.includes(searchTerm) ? 1 : 0;
+            const bLocationMatch = bLocation.includes(searchTerm) ? 1 : 0;
+            
+            if (aLocationMatch !== bLocationMatch) {
+              return bLocationMatch - aLocationMatch;
+            }
+            
+            // Finally sort by price (cheapest first)
+            return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
+          });
+          
+          // Apply new order
+          visibleItems.forEach((item, index) => {
+            item.style.order = index;
+          });
+    
+          // Update tools count
+          const toolsCount = document.querySelector('section.w-full p.text-gray-500');
+          if (toolsCount) {
+            toolsCount.textContent = `${visibleItems.length} tools found`;
+          }
+        }
+        
+        // Event listeners
+        toolsSearch.addEventListener('input', filterTools);
+        searchToolsBtn.addEventListener('click', filterTools);
+        
+        // If there's a search parameter in URL, apply it
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('search')) {
+          toolsSearch.value = urlParams.get('search');
+          filterTools();
+        }
+      });
+    </script> 
+  <script>
+      
+
+      // Image Modal Functions
+      function openImageModal(imageSrc, imageAlt) {
+      const modal = document.getElementById('imageModal');
+      const expandedImg = document.getElementById('expandedImage');
+      
+      if (!imageSrc) return; // Don't open if no image
+      
+      expandedImg.src = imageSrc;
+      expandedImg.alt = imageAlt;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+    
+    function closeImageModal(event) {
+      // Prevent closing when clicking on the image itself
+      if (event && event.target.classList.contains('modal-image')) {
+        return;
+      }
+      
+      // Stop event bubbling if close button was clicked directly
+      if (event) {
+        event.stopPropagation();
+      }
+      
+      const modal = document.getElementById('imageModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
+    
+    // Close modal with ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.getElementById('imageModal').classList.contains('active')) {
+        closeImageModal();
+      }
+    });
+    // Update price display when slider moves
+    const priceSlider = document.querySelector('input[name="max_price"]');
+    const priceDisplay = document.querySelector('label[for="max_price"] span');
+    
+    if (priceSlider && priceDisplay) {
+      priceSlider.addEventListener('input', function() {
+        priceDisplay.textContent = '₹' + this.value;
+      });
+    }
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!event.target.matches('.dropdown-toggle')) {
+        const dropdowns = document.querySelectorAll('.dropdown-menu');
+        dropdowns.forEach(function(dropdown) {
+          dropdown.classList.add('hidden');
+        });
+      }
+    });
+
+    
+  </script>
+</body>
+</html>
