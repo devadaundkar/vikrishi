@@ -68,7 +68,7 @@ def add_farm(request):
 
 def generate_map_embed(location):
     encoded = location.replace(" ", "+")
-    return f"https://www.google.com/maps/embed/v1/place?q={encoded}&key=AIzaSyBbfgOajOjAh8LDejJbJtUh2cl3IPkw5pM"
+    return f"https://www.google.com/maps/embed/v1/place?q={encoded}&key={settings.GOOGLE_MAPS_API_KEY}"
 
 @custom_login_required
 def rent_land(request):
