@@ -63,7 +63,7 @@ def add_farm(request):
         messages.success(request, "Farm submitted successfully!")
         return redirect("rent_land")
 
-    return render(request, "add_farm.html")
+    return render(request, "add_farm.html", {"google_maps_api_key": settings.GOOGLE_MAPS_API_KEY})
 
 
 def generate_map_embed(location):
