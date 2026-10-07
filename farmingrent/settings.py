@@ -226,6 +226,9 @@ TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN', '4c70732581fc4e7e4dc7dd6
 RAZORPAY_KEY_ID = os.environ.get('RAZORPAY_KEY_ID', 'rzp_test_YwAenDeaTCwwkW')
 RAZORPAY_KEY_SECRET = os.environ.get('RAZORPAY_KEY_SECRET', 'NcIOY4ondm6cZvUlaS1anTzW')
 
+# Google Maps
+GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY', '')
+
 # Hugging Face Configuration (used by tools/utils.py for tool-image classification)
 HUGGINGFACE_API_TOKEN = os.environ.get(
     'HUGGINGFACE_API_TOKEN', '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'
