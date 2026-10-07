@@ -297,7 +297,7 @@
         const long = position.coords.longitude.toFixed(8);
 
         try {
-            const apiKey = "AIzaSyBbfgOajOjAh8LDejJbJtUh2cl3IPkw5pM";
+            const apiKey = "{{ google_maps_api_key }}";
             const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${long}&key=${apiKey}`);
             const data = await response.json();
 
